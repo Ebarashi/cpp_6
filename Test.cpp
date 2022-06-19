@@ -1,20 +1,17 @@
 #include "doctest.h"
-#include <iostream>
-#include <string>
 #include "sources/League.hpp"
 
 using namespace std;
 TEST_CASE("Team")
 {
     
-    cout << "im in" << endl;
+    
 
     Team t1 {0.5, "BBB"};
     Team t2 {0.15, "ALT"};
     Team t3 {0.135, "CTRL"};
     Team t4 {0.515, "ESPN"};
 
-    std::cout << "im in" << endl;
     Game g1 {&t1, &t2};
     if(g1.winner){
         CHECK(t1.pointsDiff() > 0);
