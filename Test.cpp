@@ -1,4 +1,6 @@
 #include "doctest.h"
+#include <iostream>
+#include <string>
 #include "sources/League.hpp"
 
 
