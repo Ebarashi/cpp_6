@@ -2,13 +2,17 @@
 #include "sources/League.hpp"
 
 
-TEST_CASE("Team"){
+TEST_CASE("Team")
+{
+    
+    cout << "im in" << endl;
 
     Team t1 {0.5, "BBB"};
     Team t2 {0.15, "ALT"};
     Team t3 {0.135, "CTRL"};
     Team t4 {0.515, "ESPN"};
 
+    std::cout << "im in" << endl;
     Game g1 {&t1, &t2};
     if(g1.winner){
         CHECK(t1.pointsDiff() > 0);
@@ -23,18 +27,18 @@ TEST_CASE("Team"){
     }
 
 
-    Leauge lig; 
-    CHECK_THROWS(lig.bottomTeams(5));
-    CHECK_THROWS(lig.bottomTeams(10));
+    League league; 
+    CHECK_THROWS(league.bottomTeams(5));
+    CHECK_THROWS(league.bottomTeams(10));
     
 
-    lig.startLeague();
-    CHECK_NOTHROW(lig.bottomTeams(5));
-    CHECK_NOTHROW(lig.topTeams(5));
-    CHECK_NOTHROW(lig.longestLoseStreak());
-    CHECK_NOTHROW(lig.longestWinStreak());
-    CHECK_NOTHROW(lig.negetiveBalnce());
-    CHECK_NOTHROW(lig.positiveBalnce());
+    league.startLeague();
+    CHECK_NOTHROW(league.bottomTeams(5));
+    CHECK_NOTHROW(league.topTeams(5));
+    CHECK_NOTHROW(league.longestLoseStreak());
+    CHECK_NOTHROW(league.longestWinStreak());
+    CHECK_NOTHROW(league.negetiveBalnce());
+    CHECK_NOTHROW(league.positiveBalnce());
 
     
 }

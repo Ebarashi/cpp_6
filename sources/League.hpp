@@ -5,7 +5,7 @@
 #include "Schedule.hpp"
 
 
-class Leauge
+class League
 {
     private:
         
@@ -14,7 +14,7 @@ class Leauge
 
     public:
         
-        Leauge();
+        League();
         void startLeague();
         void printTable();
 

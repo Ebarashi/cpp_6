@@ -7,7 +7,7 @@ bool compare(Team * t1, Team *t2){
 
     if(t1->wins > t2->wins || t1->pointsDiff() >= t2->pointsDiff()) return true;
     
-
+    return false;
 }
 
 std::vector<string> ballT {
@@ -20,7 +20,7 @@ std::vector<string> ballT {
 
 
 
-Leauge::Leauge()
+League::League()
 {
 
     for(size_t i =0; i <20; i++){
@@ -30,14 +30,14 @@ Leauge::Leauge()
 }
 
 
-void Leauge::startLeague(){
+void League::startLeague(){
 
     s->startSeason();
     std::sort(teams.begin(), teams.begin() + 20, compare);
 
 }
 
-void Leauge::printTable(){
+void League::printTable(){
 
     for(Team* t: teams){
 
@@ -47,29 +47,31 @@ void Leauge::printTable(){
 }
 
 
-    void Leauge::topTeams(int num){
+    void League::topTeams(int num){
 
         num = std::min(num, 20);
         cout << "=========== TOP " << num << " TEAM ===========\n" << endl;
-        for(int i = 0 ; i < num; i++){
+        for(unsigned int i = 0 ; i < num; i++){
             cout<<i<<") "<<teams[i]->getName()<<std::endl;
         }
 
     }
 
-    void Leauge::bottomTeams(int num)
+    void League::bottomTeams(int num)
     {
 
         num = std::min(num, 20);
         cout << "=========== BUTTOM " << num << " TEAM ===========\n" << endl;
-        for(int i = 0 ; i < num; i++){
+        for(unsigned int i = 0 ; i < num; i++){
             cout<<i<<") "<<teams[19 - i]->getName()<<std::endl;
         }
     }
 
-    void Leauge::longestWinStreak(){
+    void League::longestWinStreak(){
 
-        int i = 0, longest = -1, index = 0;
+        unsigned int i = 0; 
+        int longest = -1;
+        unsigned int index = 0;
         cout << "=========== LONGEST WIN STREAK ===========\n" << endl;
         for(; i < 20; i++){
             if(teams[i]->getWinStreak() > longest){
@@ -80,9 +82,11 @@ void Leauge::printTable(){
         }
             cout<<"The longest win streak is: "<<longest<<", Team: "<<teams[index]->getName()<<std::endl;
     }
-    void Leauge::longestLoseStreak(){
+    void League::longestLoseStreak(){
 
-        int i = 0, longest = -1, index = 0;
+        unsigned int i = 0; 
+        int longest = -1;
+        unsigned int index = 0;
         cout << "=========== LONGEST LOSE STREAK ===========\n" << endl;
         for(; i < 20; i++){
             
@@ -95,22 +99,22 @@ void Leauge::printTable(){
             cout<<"The longest Lose streak is: "<<longest<<", Team: "<<teams[index]->getName()<<std::endl;
     }
  
-    void Leauge::positiveBalnce(){
+    void League::positiveBalnce(){
 
         int posTeams = 0;
 
-        for(int i = 0; i < 20; i++){
+        for(unsigned int i = 0; i < 20; i++){
             if(teams[i]->pointsDiff() > 0) posTeams++;
         }        
 
         cout<<posTeams<<" Teams [positive points balance]"<<std::endl;
     }
 
-    void Leauge::negetiveBalnce(){
+    void League::negetiveBalnce(){
 
         int negTeams = 0;
 
-        for(int i = 0; i < 20; i++){
+        for(unsigned int i = 0; i < 20; i++){
             if(teams[i]->pointsDiff() < 0) negTeams++;
         }        
 

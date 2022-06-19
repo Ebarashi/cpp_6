@@ -10,16 +10,20 @@ Game::Game(Team *home,Team * away)
     away = away; 
     homePoints = 0; 
     awayPoints = 0;
+    
 }
 
 
 void Game::play()
 {
+    std::random_device randomd;
+    std::mt19937 generator{randomd()};
+    normal_distribution<double> distribution{65, 17};
     do {
-        homePoints = this->distribution(this->generator);
+        homePoints = distribution(generator);
     } while (homePoints > 100 || homePoints < 0);
     do {
-        awayPoints = this->distribution(this->generator);
+        awayPoints = distribution(generator);
     } while (awayPoints > 100 || awayPoints < 0);
     homePoints += 10 * this->home->getSkill();
     awayPoints += 10 * this->away->getSkill();

@@ -8,16 +8,15 @@
 using namespace std;
 
 
-    class Game
-    {
+class Game
+{
     private:
         Team *home, *away;
-        normal_distribution<double> distribution{65, 17};
-        std::random_device rd{};
-        std::mt19937 generator{rd()};
+        
+       
     public:
 
-        Game(Team *home,Team * away);
+        Game(Team *home,Team* away);
         
         bool winner;
         int homePoints, awayPoints;
@@ -26,4 +25,4 @@ using namespace std;
         void play();
         friend ostream& operator<<(ostream& out, Game& g);
         
-    };
+};

@@ -16,8 +16,10 @@ OBJECTS=$(subst sources/,objects/,$(subst .cpp,.o,$(SOURCES)))
 
 run: test
 
-test: TestRunner.o StudentTest1.o  $(OBJECTS)
+test: StudentTest1.o  $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
+
+
 
 %.o: %.cpp $(HEADERS)
 	$(CXX) $(CXXFLAGS) --compile $< -o $@
@@ -27,7 +29,7 @@ $(OBJECT_PATH)/%.o: $(SOURCE_PATH)/%.cpp $(HEADERS)
 
 #Eilon Barashi
 StudentTest1.cpp: 
-	curl https://raw.githubusercontent.com/Ebarashi/cpp_6/main/Test.cpp > $@
+	curl https://raw.githubusercontent.com/Ebarashi/cpp_6/master/Test.cpp > $@
 
 tidy:
 	clang-tidy $(SOURCES) $(HEADERS) $(TIDY_FLAGS) --
