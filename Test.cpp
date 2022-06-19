@@ -1,7 +1,7 @@
 #include "doctest.h"
 #include "sources/League.hpp"
 
-using namespace std;
+
 TEST_CASE("Team")
 {
     
