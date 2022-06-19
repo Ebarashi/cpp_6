@@ -3,7 +3,7 @@
 #include <string>
 #include "sources/League.hpp"
 
-
+using namespace std;
 TEST_CASE("Team")
 {
     
