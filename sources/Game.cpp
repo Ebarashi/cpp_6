@@ -20,10 +20,10 @@ void Game::play()
 {
     do {
         homePoints = distribution(generator);
-    } while (homePoints > 100 || homePoints < 0);
+    } while (homePoints > 100 || homePoints < 55);
     do {
         awayPoints = distribution(generator);
-    } while (awayPoints > 100 || awayPoints < 0);
+    } while (awayPoints > 100 || awayPoints < 50);
     homePoints += 10 * (int)this->home->getSkill();
     awayPoints += 10 * (int)this->away->getSkill();
     
