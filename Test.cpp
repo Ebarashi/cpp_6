@@ -27,7 +27,7 @@ TEST_CASE("Team")
 
     League league; 
     CHECK_THROWS(league.bottomTeams(5));
-    CHECK_THROWS(league.bottomTeams(10));
+    CHECK_THROWS(league.topTeams(5));
     
 
     league.startLeague();
