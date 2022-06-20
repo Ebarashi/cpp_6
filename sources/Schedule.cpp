@@ -4,15 +4,14 @@
 
 
 
-Schedule::Schedule(vector<Team*>& t)
+Schedule::Schedule()
 {
-    teams = t;
 }
 
 
-void Schedule::startSeason()
+std::vector<Round> Schedule::startSeason(vector<Team*> t)
 {
-    std::vector<Round*> ans;
+    std::vector<Round> ans;
 
     vector<size_t> teamsNumbers;
     teamsNumbers.reserve(20);
@@ -23,8 +22,8 @@ void Schedule::startSeason()
     for (size_t i = 0; i < 20 - 1; i++) {
         Round round;
         for (size_t j = 0; j < 20 / 2; j++) {
-            round.games.emplace_back((teams.at(teamsNumbers.at(j))),(teams.at(teamsNumbers.at(20 - 1 - j))));
-            round.games.emplace_back((teams.at(teamsNumbers.at(20 - 1 - j))), (teams.at(teamsNumbers.at(j))));
+            round.games.emplace_back(t[teamsNumbers.at(j)],(t[(teamsNumbers.at(20 - 1 - j))]));
+            round.games.emplace_back((t[(teamsNumbers.at(20 - 1 - j))]), (t[(teamsNumbers.at(j))]));
         }
 
         size_t last = teamsNumbers.at(teamsNumbers.size() - 1);
@@ -32,15 +31,8 @@ void Schedule::startSeason()
             teamsNumbers.at(j) = teamsNumbers.at(j - 1);
         }
         teamsNumbers.at(1) = last;
-        ans.push_back(&round);
+        rounds.push_back(round);
     }
     
-    //start season after finished to make all rounds
-    for (auto &curr_round : ans)
-    {
-        for (auto &game : *curr_round)
-        {
-            game.play();
-        }
-    }
+   return ans;
 }

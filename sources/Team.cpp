@@ -1,16 +1,16 @@
 #include "Team.hpp"
 
 
-Team::Team(double skill, string name)
+Team::Team(double skill, string &name)
 {
-    skill = skill;
-    name = name;
-    Scored = 0; 
-    absorbedPoints = 0;
-    winStreak = 0;
-    loseStreak = 0;
-    wins = 0;
-    loses = 0;
+    this->skill = skill;
+    this->name = name;
+    this->Scored = 0; 
+    this->absorbedPoints = 0;
+    this->winStreak = 0;
+    this->loseStreak = 0;
+    this->wins = 0;
+    this->loses = 0;
 }
 
 string Team::getName(){return this->name;}

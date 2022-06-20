@@ -24,16 +24,25 @@ League::League()
 {
 
     for(size_t i =0; i <20; i++){
-        teams[i] = new Team((double) rand() / (RAND_MAX), ballT.at(i));
+        teams.push_back((new Team((double) rand() / (RAND_MAX), ballT.at(i))));
     }
-    s = new Schedule(teams);
+    
+    s = new Schedule();
 }
 
 
 void League::startLeague(){
 
-    s->startSeason();
-    std::sort(teams.begin(), teams.begin() + 20, compare);
+    started = true;
+    s->startSeason(teams);
+      for (auto &curr_round : (this->s->rounds))
+    {
+        for (auto &game : curr_round)
+        {
+            game.play();
+        }
+    }
+    std::sort(teams.begin(), teams.end(), compare);
 
 }
 
@@ -48,7 +57,9 @@ void League::printTable(){
 
 
     void League::topTeams(int num){
-
+        if(!started){
+            throw runtime_error("the league has not yet been started");
+        }
         num = std::min(num, 20);
         cout << "=========== TOP " << num << " TEAM ===========\n" << endl;
         for(unsigned int i = 0 ; i < num; i++){
@@ -59,7 +70,9 @@ void League::printTable(){
 
     void League::bottomTeams(int num)
     {
-
+         if(!started){
+            throw runtime_error("the league has not yet been started");
+        }
         num = std::min(num, 20);
         cout << "=========== BUTTOM " << num << " TEAM ===========\n" << endl;
         for(unsigned int i = 0 ; i < num; i++){
@@ -69,6 +82,9 @@ void League::printTable(){
 
     void League::longestWinStreak(){
 
+         if(!started){
+            throw runtime_error("the league has not yet been started");
+        }
         unsigned int i = 0; 
         int longest = -1;
         unsigned int index = 0;
@@ -84,6 +100,9 @@ void League::printTable(){
     }
     void League::longestLoseStreak(){
 
+         if(!started){
+            throw runtime_error("the league has not yet been started");
+        }
         unsigned int i = 0; 
         int longest = -1;
         unsigned int index = 0;
@@ -102,7 +121,9 @@ void League::printTable(){
     void League::positiveBalnce(){
 
         int posTeams = 0;
-
+         if(!started){
+            throw runtime_error("the league has not yet been started");
+        }
         for(unsigned int i = 0; i < 20; i++){
             if(teams[i]->pointsDiff() > 0) posTeams++;
         }        
@@ -113,7 +134,9 @@ void League::printTable(){
     void League::negetiveBalnce(){
 
         int negTeams = 0;
-
+         if(!started){
+            throw runtime_error("the league has not yet been started");
+        }
         for(unsigned int i = 0; i < 20; i++){
             if(teams[i]->pointsDiff() < 0) negTeams++;
         }        

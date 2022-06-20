@@ -17,7 +17,7 @@ class Team
     public:
         
         int wins, loses;
-        Team(double skill, string name);
+        Team(double skill, string &name);
         
         string getName();
         double getSkill();

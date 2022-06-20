@@ -1,25 +1,24 @@
 #include "doctest.h"
 #include "sources/League.hpp"
+#include <string>
 
-using namespace std;
 TEST_CASE("Team")
-{
-    
-    
-
-    Team t1 {0.5, "BBB"};
-    Team t2 {0.15, "ALT"};
-    Team t3 {0.135, "CTRL"};
-    Team t4 {0.515, "ESPN"};
+{   
+    string a = "BBB";string b = "ALT";string c= "CTRL"; string d= "ESPN";
+    Team t1 {0.5, a};
+    Team t2 {0.15, b};
+    Team t3 {0.135, c};
+    Team t4 {0.515, d};
 
     Game g1 {&t1, &t2};
+    g1.play();
     if(g1.winner){
         CHECK(t1.pointsDiff() > 0);
         CHECK(t2.pointsDiff() < 0);
     }
 
     Game g2{&t3, &t4};
-
+    g2.play();
     if(g2.winner){
         CHECK(t3.pointsDiff() > 0);
         CHECK(t4.pointsDiff() < 0);

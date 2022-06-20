@@ -17,6 +17,7 @@ class Game
     public:
 
         Game(Team *home,Team* away);
+
         
         bool winner;
         int homePoints, awayPoints;

@@ -10,10 +10,12 @@ class League
     private:
         
         vector<Team*> teams;
-        Schedule * s;
+        // Team * teams[20];
+        Schedule* s;
 
     public:
         
+        bool started = false;
         League();
         void startLeague();
         void printTable();

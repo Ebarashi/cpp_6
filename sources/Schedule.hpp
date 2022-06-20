@@ -2,19 +2,6 @@
 #pragma once
 #include "Game.hpp"
 
-class Schedule
-{
-private:
-    vector<Team*> teams;
- 
-    
-public:
-    
-    Schedule(vector<Team*>&teams);
-    void startSeason();
-
-};
-
 struct Round
 {
     std::vector<Game> games;
@@ -22,3 +9,17 @@ struct Round
     std::vector<Game>::iterator end(){return games.end();}
 
 };
+
+class Schedule
+{
+    private:
+        vector<Team*> t;
+
+        
+    public:
+        std::vector<Round> rounds;
+        Schedule();
+        std::vector<Round> startSeason(vector<Team*> t);
+
+};
+
