@@ -35,9 +35,9 @@ void League::startLeague(){
 
     started = true;
     s->startSeason(teams);
-      for (auto &curr_round : (this->s->rounds))
+    for (auto &currRound : (this->s->rounds))
     {
-        for (auto &game : curr_round)
+        for (auto &game : currRound)
         {
             game.play();
         }
@@ -87,16 +87,16 @@ void League::printTable(){
         }
         unsigned int i = 0; 
         int longest = -1;
-        unsigned int index = 0;
+        unsigned int counter = 0;
         cout << "=========== LONGEST WIN STREAK ===========\n" << endl;
         for(; i < 20; i++){
             if(teams[i]->getWinStreak() > longest){
                 longest = teams[i]->getWinStreak();
-                index = i;
+                counter = i;
             }
 
         }
-            cout<<"The longest win streak is: "<<longest<<", Team: "<<teams[index]->getName()<<std::endl;
+            cout<<"The longest win streak is: "<<longest<<", Team: "<<teams[counter]->getName()<<"\n"<<endl;
     }
     void League::longestLoseStreak(){
 
@@ -105,17 +105,17 @@ void League::printTable(){
         }
         unsigned int i = 0; 
         int longest = -1;
-        unsigned int index = 0;
+        unsigned int counter = 0;
         cout << "=========== LONGEST LOSE STREAK ===========\n" << endl;
         for(; i < 20; i++){
             
             if(teams[i]->getLoseStreak() > longest){
                 longest = teams[i]->getLoseStreak();
-                index = i;
+                counter = i;
             }
 
         }
-            cout<<"The longest Lose streak is: "<<longest<<", Team: "<<teams[index]->getName()<<std::endl;
+            cout<<"The longest Lose streak is: "<<longest<<", Team: "<<teams[counter]->getName()<<"\n"<<endl;
     }
  
     void League::positiveBalnce(){
@@ -128,7 +128,7 @@ void League::printTable(){
             if(teams[i]->pointsDiff() > 0) posTeams++;
         }        
 
-        cout<<posTeams<<" Teams [positive points balance]"<<std::endl;
+        cout<<posTeams<<" Teams [positive points balance]"<<"\n"<<endl;
     }
 
     void League::negetiveBalnce(){
@@ -141,7 +141,7 @@ void League::printTable(){
             if(teams[i]->pointsDiff() < 0) negTeams++;
         }        
 
-        cout<<negTeams<<"  Teams [negetive points balance] "<<std::endl;
+        cout<<negTeams<<"  Teams [negetive points balance] "<<"\n"<<endl;
     }
    
  

@@ -25,9 +25,6 @@ class Team
         int getWinStreak(){return LongestwinStreak;}
         int getLoseStreak(){return LongestloseStreak;}
 
-        void resetWins(){winStreak = 0;}
-        void resetLoses() {loseStreak = 0;}
-        
         void won(int scored, int absorbed);
         void lost(int scored, int absorbed);
 };

@@ -9,9 +9,8 @@ Schedule::Schedule()
 }
 
 
-std::vector<Round> Schedule::startSeason(vector<Team*> t)
+void Schedule::startSeason(vector<Team*> t)
 {
-    std::vector<Round> ans;
 
     vector<size_t> teamsNumbers;
     teamsNumbers.reserve(20);
@@ -33,6 +32,5 @@ std::vector<Round> Schedule::startSeason(vector<Team*> t)
         teamsNumbers.at(1) = last;
         rounds.push_back(round);
     }
-    
-   return ans;
+  
 }

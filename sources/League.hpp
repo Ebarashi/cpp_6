@@ -10,7 +10,6 @@ class League
     private:
         
         vector<Team*> teams;
-        // Team * teams[20];
         Schedule* s;
 
     public:

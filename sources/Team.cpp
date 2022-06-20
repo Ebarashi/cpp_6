@@ -11,6 +11,8 @@ Team::Team(double skill, string &name)
     this->loseStreak = 0;
     this->wins = 0;
     this->loses = 0;
+    this->LongestwinStreak = 0;
+    this->LongestloseStreak = 0;
 }
 
 string Team::getName(){return this->name;}
@@ -27,7 +29,7 @@ double Team::getSkill(){return this->skill;}
     }
 
     void Team::lost(int scored, int absorbed){
-        Scored += scored;
+        this->Scored += scored;
         absorbedPoints += absorbed;
         loseStreak++;
         if(loseStreak > LongestloseStreak){

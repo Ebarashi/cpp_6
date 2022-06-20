@@ -12,14 +12,11 @@ struct Round
 
 class Schedule
 {
-    private:
-        vector<Team*> t;
-
-        
+     
     public:
         std::vector<Round> rounds;
         Schedule();
-        std::vector<Round> startSeason(vector<Team*> t);
+        void startSeason(vector<Team*> t);
 
 };
 

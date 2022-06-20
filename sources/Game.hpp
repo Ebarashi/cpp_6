@@ -21,8 +21,6 @@ class Game
         
         bool winner;
         int homePoints, awayPoints;
-        Team& get_homeTeam(){return *this->home;}
-        Team& get_outTeam(){return *this-> away;}
         void play();
         friend ostream& operator<<(ostream& out, Game& g);
         

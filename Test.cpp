@@ -26,17 +26,18 @@ TEST_CASE("Team")
 
 
     League league; 
-    CHECK_THROWS(league.bottomTeams(5));
     CHECK_THROWS(league.topTeams(5));
+    CHECK_THROWS(league.bottomTeams(5));
+    
     
 
     league.startLeague();
-    CHECK_NOTHROW(league.bottomTeams(5));
     CHECK_NOTHROW(league.topTeams(5));
+    CHECK_NOTHROW(league.bottomTeams(5));
     CHECK_NOTHROW(league.longestLoseStreak());
     CHECK_NOTHROW(league.longestWinStreak());
     CHECK_NOTHROW(league.negetiveBalnce());
     CHECK_NOTHROW(league.positiveBalnce());
-
+    CHECK_NOTHROW(league.printTable());
     
 }
